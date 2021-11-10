@@ -1,13 +1,14 @@
+import { Box } from '@mui/system';
 import React from 'react';
 import Products from '../Products/Products';
 
 const Home = () => {
     return (
-        <div>
+        <Box>
             <h3>This is Home Page</h3>
             <br />
             <Products/>
-        </div>
+        </Box>
     );
 };
 

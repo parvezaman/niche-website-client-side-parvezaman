@@ -7,6 +7,9 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
+import { BsFillCameraFill } from "react-icons/bs";
+import { RiLoginBoxFill } from "react-icons/ri";
+import { IoHome } from "react-icons/io5";
 
 const Navigation = () => {
     return (
@@ -23,12 +26,12 @@ const Navigation = () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Shop&Shoot
+                        <BsFillCameraFill/> Shop&Shoot
                     </Typography>
-                    <NavLink to="/home" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit">Home</Button></NavLink>
+                    <NavLink to="/home" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit" sx={{fontSize:'21px'}}><IoHome/></Button></NavLink>
                     <NavLink to="/addproduct" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit">Add Product</Button></NavLink>
 
-                    <Button color="inherit">Login</Button>
+                    <Button sx={{fontSize:'23px'}} color="inherit"><RiLoginBoxFill/></Button>
                 </Toolbar>
             </AppBar>
         </Box>
