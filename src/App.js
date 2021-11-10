@@ -7,10 +7,12 @@ import {
 import Home from './pages/HomePage/Home/Home';
 import AddProduct from './pages/AddProduct/AddProduct';
 import NotFound from './pages/NotFound/NotFound';
+import Navigation from './pages/Shared/Navigation/Navigation';
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navigation/>
         <Switch>
           <Route exact path="/">
             <Home />
