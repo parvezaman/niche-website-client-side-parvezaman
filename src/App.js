@@ -8,6 +8,7 @@ import Home from './pages/HomePage/Home/Home';
 import AddProduct from './pages/AddProduct/AddProduct';
 import NotFound from './pages/NotFound/NotFound';
 import Navigation from './pages/Shared/Navigation/Navigation';
+import AllProducts from './pages/AllProducts/AllProducts';
 function App() {
   return (
     <div className="">
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/addproduct">
             <AddProduct/>
+          </Route>
+          <Route path="/allproducts">
+            <AllProducts/>
           </Route>
           <Route path="*">
             <NotFound/>

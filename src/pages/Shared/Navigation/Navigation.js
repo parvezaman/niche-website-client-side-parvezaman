@@ -31,6 +31,7 @@ const Navigation = () => {
                     </Typography>
                     <NavLink to="/home" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit" sx={{fontSize:'21px'}}><IoHome/></Button></NavLink>
                     <NavLink to="/addproduct" style={{ textDecoration: 'none', color: 'white' }}><Button sx={{fontSize:'23px'}} color="inherit"><MdAddAPhoto/></Button></NavLink>
+                    <NavLink to="/allproducts" style={{ textDecoration: 'none', color: 'white' }}><Button sx={{fontSize:'15px'}} color="inherit">All Cameras</Button></NavLink>
 
                     <Button sx={{fontSize:'23px'}} color="inherit"><RiLoginBoxFill/></Button>
                 </Toolbar>
