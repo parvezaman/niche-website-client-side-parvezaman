@@ -10,7 +10,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Navigation from './pages/Shared/Navigation/Navigation';
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <Router>
         <Navigation/>
         <Switch>

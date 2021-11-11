@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 import { BsFillCameraFill } from "react-icons/bs";
 import { RiLoginBoxFill } from "react-icons/ri";
 import { IoHome } from "react-icons/io5";
+import { MdAddAPhoto } from "react-icons/md";
 
 const Navigation = () => {
     return (
@@ -29,7 +30,7 @@ const Navigation = () => {
                         <BsFillCameraFill/> Shop&Shoot
                     </Typography>
                     <NavLink to="/home" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit" sx={{fontSize:'21px'}}><IoHome/></Button></NavLink>
-                    <NavLink to="/addproduct" style={{ textDecoration: 'none', color: 'white' }}><Button color="inherit">Add Product</Button></NavLink>
+                    <NavLink to="/addproduct" style={{ textDecoration: 'none', color: 'white' }}><Button sx={{fontSize:'23px'}} color="inherit"><MdAddAPhoto/></Button></NavLink>
 
                     <Button sx={{fontSize:'23px'}} color="inherit"><RiLoginBoxFill/></Button>
                 </Toolbar>
