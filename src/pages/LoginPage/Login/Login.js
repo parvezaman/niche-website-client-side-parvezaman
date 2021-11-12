@@ -1,9 +1,15 @@
-import { Container, Grid, TextField, Typography, Button } from '@mui/material';
+import { Container, Grid, TextField, Typography, Button, Alert, CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
+    const { user, loginUser, isLoading, authError } = useAuth();
     const [loginData, setLoginData] = useState({});
+
+    const location = useLocation();
+    const history = useHistory();
+
     const handleOnBlur = (e) => {
         const field = e.target.name;
         const value = e.target.value;
@@ -14,7 +20,8 @@ const Login = () => {
     console.log(loginData);
 
     const handleLoginOnSubmit = (e) => {
-        // alert("clicked the submit button");
+        loginUser(loginData.email, loginData.password, location, history);
+
         e.preventDefault();
     }
     return (
@@ -52,6 +59,19 @@ const Login = () => {
                             <Button sx={{ width: 3 / 4, m: 1 }} variant="text">New User? Please Rsegister</Button>
                         </NavLink>
                     </form>
+
+                    {
+                        isLoading && <CircularProgress />
+                    }
+
+                    {
+                        user?.email && <Alert severity="success">Thank You! User Registered Successfully!!!</Alert>
+
+                    }
+
+                    {
+                        authError && <Alert severity="error">{authError}</Alert>
+                    }
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '100%', marginTop: '15px' }} src="https://i.ibb.co/Jz4v5xN/register.png" alt="" />

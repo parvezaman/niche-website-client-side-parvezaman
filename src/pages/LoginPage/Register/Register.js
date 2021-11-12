@@ -1,10 +1,10 @@
-import { Container, Grid, TextField, Typography, Button, CircularProgress } from '@mui/material';
+import { Container, Grid, TextField, Typography, Button, CircularProgress, Alert } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
-    const { registerUser, isLoading } = useAuth();
+    const { user, registerUser, isLoading, authError } = useAuth();
     const [loginData, setLoginData] = useState({});
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -26,13 +26,14 @@ const Register = () => {
     }
     return (
         <Container>
+
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <Typography sx={{ textAlign: "center", mt: 5 }} variant="h4" gutterBottom>
                         Please Register
                     </Typography>
 
-                    { !isLoading && <form onSubmit={handleLoginOnSubmit}>
+                    {!isLoading && <form onSubmit={handleLoginOnSubmit}>
                         <TextField
                             sx={{ width: 3 / 4, m: 1 }}
                             id="standard-basic"
@@ -86,6 +87,16 @@ const Register = () => {
                     {
                         isLoading && <CircularProgress />
                     }
+
+                    {
+                        user?.email && <Alert severity="success">Thank You! User Registered Successfully!!!</Alert>
+
+                    }
+
+                    {
+                        authError && <Alert severity="error">{authError}</Alert>
+                    }
+
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '100%', marginTop: '15px' }} src="https://i.ibb.co/hYhhZ27/login.png" alt="" />

@@ -12,6 +12,7 @@ import AllProducts from './pages/AllProducts/AllProducts';
 import Login from './pages/LoginPage/Login/Login';
 import Register from './pages/LoginPage/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './pages/LoginPage/PrivateRoute/PrivateRoute';
 function App() {
   return (
     <div className="">
@@ -25,9 +26,9 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
-            <Route path="/addproduct">
+            <PrivateRoute path="/addproduct">
               <AddProduct />
-            </Route>
+            </PrivateRoute>
             <Route path="/allproducts">
               <AllProducts />
             </Route>

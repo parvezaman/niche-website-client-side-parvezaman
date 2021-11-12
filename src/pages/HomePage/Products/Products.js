@@ -31,6 +31,9 @@ const Products = () => {
               <Typography variant="h4" gutterBottom component="div">
                 {product.name}
               </Typography>
+
+              <Divider/>
+              
               <Typography variant="h6" gutterBottom component="div">
                 Resolution: {product.resolution} MP
               </Typography>
