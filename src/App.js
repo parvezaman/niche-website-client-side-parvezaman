@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Navigation from './pages/Shared/Navigation/Navigation';
 import AllProducts from './pages/AllProducts/AllProducts';
 import Login from './pages/LoginPage/Login/Login';
+import Register from './pages/LoginPage/Register/Register';
 function App() {
   return (
     <div className="">
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login/>
+          </Route>
+          <Route path="/register">
+            <Register/>
           </Route>
           <Route path="*">
             <NotFound/>

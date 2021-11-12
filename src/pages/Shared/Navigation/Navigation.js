@@ -129,7 +129,9 @@ const Navigation = () => {
                             <NavLink className={navItem} to="/allproducts"><Button sx={{ fontSize: '15px' }} color="inherit">All Cameras</Button></NavLink>
                             <NavLink className={navItem} to="/login"><Button sx={{ fontSize: '15px' }} color="inherit">Login</Button></NavLink>
 
-                            <Button sx={{ fontSize: '23px' }} color="inherit"><RiLoginBoxFill /></Button>
+                            <NavLink className={navItem} to='/login'>
+                                <Button sx={{ fontSize: '23px' }} color="inherit"><RiLoginBoxFill /></Button>
+                            </NavLink>
                         </Box>
                     </Toolbar>
                 </AppBar>

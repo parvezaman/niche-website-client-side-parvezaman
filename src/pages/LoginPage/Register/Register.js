@@ -2,7 +2,7 @@ import { Container, Grid, TextField, Typography, Button } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     const [loginData, setLoginData] = useState({});
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -22,17 +22,28 @@ const Login = () => {
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <Typography sx={{ textAlign: "center", mt: 5 }} variant="h4" gutterBottom>
-                        Let's Login
+                        Please Register
                     </Typography>
 
                     <form onSubmit={handleLoginOnSubmit}>
                         <TextField
                             sx={{ width: 3 / 4, m: 1 }}
                             id="standard-basic"
-                            label="your email"
-                            name='email'
+                            label="user name"
+                            name='userName'
                             onBlur={handleOnBlur}
                             variant="standard"
+                            required={true}
+                        />
+                        <TextField
+                            sx={{ width: 3 / 4, m: 1 }}
+                            id="standard-basic"
+                            label="your email"
+                            name='email'
+                            type='email'
+                            onBlur={handleOnBlur}
+                            variant="standard"
+                            required={true}
                         />
                         {/* <br /> */}
                         <TextField
@@ -44,17 +55,29 @@ const Login = () => {
                             onBlur={handleOnBlur}
                             autoComplete="current-password"
                             variant="standard"
+                            required={true}
+                        />
+                        <TextField
+                            sx={{ width: 3 / 4, m: 1 }}
+                            id="standard-password-input"
+                            label="re-type your password"
+                            name='password2'
+                            type="password"
+                            onBlur={handleOnBlur}
+                            autoComplete="current-password"
+                            variant="standard"
+                            required={true}
                         />
 
-                        <Button sx={{ width: 3 / 4, m: 1 }} variant="contained" type="submit">Login</Button>
+                        <Button sx={{ width: 3 / 4, m: 1 }} variant="contained" type="submit">Register</Button>
 
-                        <NavLink style={{ textDecoration: 'none' }} to='/register'>
-                            <Button sx={{ width: 3 / 4, m: 1 }} variant="text">New User? Please Rsegister</Button>
+                        <NavLink style={{ textDecoration: 'none' }} to='/login'>
+                            <Button sx={{ width: 3 / 4, m: 1 }} variant="text">Already Registered? Please Login</Button>
                         </NavLink>
                     </form>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <img style={{ width: '100%', marginTop: '15px' }} src="https://i.ibb.co/Jz4v5xN/register.png" alt="" />
+                    <img style={{ width: '100%', marginTop: '15px' }} src="https://i.ibb.co/hYhhZ27/login.png" alt="" />
                 </Grid>
 
             </Grid>
@@ -62,4 +85,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
