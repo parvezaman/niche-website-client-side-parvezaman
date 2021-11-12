@@ -1,8 +1,10 @@
-import { Container, Grid, TextField, Typography, Button } from '@mui/material';
+import { Container, Grid, TextField, Typography, Button, CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
+    const { registerUser, isLoading } = useAuth();
     const [loginData, setLoginData] = useState({});
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -14,7 +16,12 @@ const Register = () => {
     console.log(loginData);
 
     const handleLoginOnSubmit = (e) => {
-        alert("clicked the submit button");
+        if (loginData.password !== loginData.password2) {
+            alert("password did not match. Please recheck!!!");
+            return;
+        }
+        // alert("clicked the submit button");
+        registerUser(loginData.email, loginData.password);
         e.preventDefault();
     }
     return (
@@ -25,7 +32,7 @@ const Register = () => {
                         Please Register
                     </Typography>
 
-                    <form onSubmit={handleLoginOnSubmit}>
+                    { !isLoading && <form onSubmit={handleLoginOnSubmit}>
                         <TextField
                             sx={{ width: 3 / 4, m: 1 }}
                             id="standard-basic"
@@ -74,7 +81,11 @@ const Register = () => {
                         <NavLink style={{ textDecoration: 'none' }} to='/login'>
                             <Button sx={{ width: 3 / 4, m: 1 }} variant="text">Already Registered? Please Login</Button>
                         </NavLink>
-                    </form>
+                    </form>}
+
+                    {
+                        isLoading && <CircularProgress />
+                    }
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '100%', marginTop: '15px' }} src="https://i.ibb.co/hYhhZ27/login.png" alt="" />

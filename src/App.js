@@ -11,35 +11,38 @@ import Navigation from './pages/Shared/Navigation/Navigation';
 import AllProducts from './pages/AllProducts/AllProducts';
 import Login from './pages/LoginPage/Login/Login';
 import Register from './pages/LoginPage/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 function App() {
   return (
     <div className="">
-      <Router>
-        <Navigation/>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/addproduct">
-            <AddProduct/>
-          </Route>
-          <Route path="/allproducts">
-            <AllProducts/>
-          </Route>
-          <Route path="/login">
-            <Login/>
-          </Route>
-          <Route path="/register">
-            <Register/>
-          </Route>
-          <Route path="*">
-            <NotFound/>
-          </Route>
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Navigation />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/addproduct">
+              <AddProduct />
+            </Route>
+            <Route path="/allproducts">
+              <AllProducts />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

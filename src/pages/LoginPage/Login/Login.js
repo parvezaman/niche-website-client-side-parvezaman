@@ -14,7 +14,7 @@ const Login = () => {
     console.log(loginData);
 
     const handleLoginOnSubmit = (e) => {
-        alert("clicked the submit button");
+        // alert("clicked the submit button");
         e.preventDefault();
     }
     return (

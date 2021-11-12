@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import { BsFillCameraFill } from "react-icons/bs";
 import { RiLoginBoxFill } from "react-icons/ri";
+import { RiLogoutBoxFill } from "react-icons/ri";
 import { IoHome } from "react-icons/io5";
 import { MdAddAPhoto } from "react-icons/md";
 import { makeStyles } from '@mui/styles';
@@ -21,8 +22,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import useAuth from '../../../hooks/useAuth';
 
 const Navigation = () => {
+    const { user, logOut } = useAuth();
     const theme = useTheme();
     const useStyle = makeStyles({
         navItem: {
@@ -127,11 +130,16 @@ const Navigation = () => {
                             <NavLink className={navItem} to="/home" ><Button color="inherit" sx={{ fontSize: '21px' }}><IoHome /></Button></NavLink>
                             <NavLink className={navItem} to="/addproduct" ><Button sx={{ fontSize: '23px' }} color="inherit"><MdAddAPhoto /></Button></NavLink>
                             <NavLink className={navItem} to="/allproducts"><Button sx={{ fontSize: '15px' }} color="inherit">All Cameras</Button></NavLink>
-                            <NavLink className={navItem} to="/login"><Button sx={{ fontSize: '15px' }} color="inherit">Login</Button></NavLink>
+                            
 
-                            <NavLink className={navItem} to='/login'>
-                                <Button sx={{ fontSize: '23px' }} color="inherit"><RiLoginBoxFill /></Button>
-                            </NavLink>
+                            {
+                                user?.email ?
+                                    <Button onClick={logOut} sx={{ fontSize: '23px' }} color="inherit"><RiLogoutBoxFill /></Button>
+                                    :
+                                    <NavLink className={navItem} to='/login'>
+                                        <Button sx={{ fontSize: '23px' }} color="inherit"><RiLoginBoxFill /></Button>
+                                    </NavLink>
+                            }
                         </Box>
                     </Toolbar>
                 </AppBar>
