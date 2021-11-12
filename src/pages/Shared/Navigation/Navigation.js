@@ -44,13 +44,13 @@ const Navigation = () => {
                 textAlign: 'right'
             }
         },
-        mobileNavItem:{
-            textAlign:'center',
-            textDecoration:'none',
-            color:'black'
+        mobileNavItem: {
+            textAlign: 'center',
+            textDecoration: 'none',
+            color: 'black'
         }
     })
-    const { navItem, navIcon, navItemContainer, ourNavLogo,mobileNavItem } = useStyle();
+    const { navItem, navIcon, navItemContainer, ourNavLogo, mobileNavItem } = useStyle();
 
     const [state, setState] = React.useState(false);
 
@@ -127,6 +127,7 @@ const Navigation = () => {
                             <NavLink className={navItem} to="/home" ><Button color="inherit" sx={{ fontSize: '21px' }}><IoHome /></Button></NavLink>
                             <NavLink className={navItem} to="/addproduct" ><Button sx={{ fontSize: '23px' }} color="inherit"><MdAddAPhoto /></Button></NavLink>
                             <NavLink className={navItem} to="/allproducts"><Button sx={{ fontSize: '15px' }} color="inherit">All Cameras</Button></NavLink>
+                            <NavLink className={navItem} to="/login"><Button sx={{ fontSize: '15px' }} color="inherit">Login</Button></NavLink>
 
                             <Button sx={{ fontSize: '23px' }} color="inherit"><RiLoginBoxFill /></Button>
                         </Box>

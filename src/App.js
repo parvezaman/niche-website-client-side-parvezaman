@@ -9,6 +9,7 @@ import AddProduct from './pages/AddProduct/AddProduct';
 import NotFound from './pages/NotFound/NotFound';
 import Navigation from './pages/Shared/Navigation/Navigation';
 import AllProducts from './pages/AllProducts/AllProducts';
+import Login from './pages/LoginPage/Login/Login';
 function App() {
   return (
     <div className="">
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/allproducts">
             <AllProducts/>
+          </Route>
+          <Route path="/login">
+            <Login/>
           </Route>
           <Route path="*">
             <NotFound/>
