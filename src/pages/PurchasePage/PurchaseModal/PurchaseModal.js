@@ -5,6 +5,8 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import { Link } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -18,8 +20,8 @@ const style = {
     p: 4,
 };
 
-const Purchase = ({openModal, handleModalClose}) => {
-    
+const Purchase = ({ openModal, handleModalClose, product }) => {
+    const { autoFocus, imageUrl, monitor, name, price, resolution, sensorSize, userLavel, viewFinder } = product;
     return (
         <Modal
             aria-labelledby="transition-modal-title"
@@ -34,12 +36,23 @@ const Purchase = ({openModal, handleModalClose}) => {
         >
             <Fade in={openModal}>
                 <Box sx={style}>
-                    <Typography id="transition-modal-title" variant="h6" component="h2">
-                        Text in a modal
+                    <Typography className="mb-4" id="transition-modal-title" variant="h6" component="h2">
+                        You are proceeding for {name}
                     </Typography>
-                    <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+
+                    <form>
+                        <TextField
+                            disabled
+                            sx={{width:'99%'}}
+                            label="Product Name"
+                            id="outlined-size-small"
+                            defaultValue={name}
+                            size="small"
+                        />
+                        <Link to="/purchase">
+                        <Button>Proceed Purchase</Button>
+                        </Link>
+                    </form>
                 </Box>
             </Fade>
         </Modal>

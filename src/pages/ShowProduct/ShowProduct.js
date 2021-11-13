@@ -1,7 +1,7 @@
 import { Button, Divider, Typography } from '@mui/material';
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Purchase from '../PurchasePage/Purchase/Purchase';
+import PurchaseModal from '../PurchasePage/PurchaseModal/PurchaseModal';
 
 const ShowProduct = ({ product }) => {
     const [openModal, setOpenModal] = React.useState(false);
@@ -48,7 +48,8 @@ const ShowProduct = ({ product }) => {
                     </div>
                 </div>
             </Container>
-            <Purchase
+            <PurchaseModal
+                product={product}
                 handleModalClose={handleModalClose}
                 openModal={openModal}
             />

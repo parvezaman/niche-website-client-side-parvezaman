@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import { Button, Container } from '@mui/material';
 import './Products.css';
 import Divider from '@mui/material/Divider';
-import Purchase from '../../PurchasePage/Purchase/Purchase';
+import Purchase from '../../PurchasePage/PurchaseModal/PurchaseModal';
 import ShowProduct from '../../ShowProduct/ShowProduct';
 
 
