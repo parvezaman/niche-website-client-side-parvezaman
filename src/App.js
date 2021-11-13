@@ -13,6 +13,8 @@ import Login from './pages/LoginPage/Login/Login';
 import Register from './pages/LoginPage/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/LoginPage/PrivateRoute/PrivateRoute';
+import Purchase from './pages/PurchasePage/Purchase/Purchase';
+
 function App() {
   return (
     <div className="">
@@ -31,6 +33,9 @@ function App() {
             </PrivateRoute>
             <Route path="/allproducts">
               <AllProducts />
+            </Route>
+            <Route path="/purchase">
+              <Purchase />
             </Route>
             <Route path="/login">
               <Login />
