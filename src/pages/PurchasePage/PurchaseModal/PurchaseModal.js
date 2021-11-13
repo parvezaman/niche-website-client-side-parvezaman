@@ -33,6 +33,7 @@ const Purchase = ({ openModal, handleModalClose, product }) => {
         e.preventDefault();
     }
 
+    console.log(user.displayName);
     return (
         <Modal
             aria-labelledby="transition-modal-title"

@@ -21,7 +21,7 @@ const useFirebase = () => {
                 setUser(newUser);
                 // send user name to firebase
                 updateProfile(auth.currentUser, {
-                    displayName: { userName }
+                    displayName: userName
                 }).then(() => {
                     // Profile updated!
                     // ...
