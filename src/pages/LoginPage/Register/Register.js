@@ -1,11 +1,12 @@
 import { Container, Grid, TextField, Typography, Button, CircularProgress, Alert } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const { user, registerUser, isLoading, authError } = useAuth();
     const [loginData, setLoginData] = useState({});
+    const history = useHistory();
     const handleOnBlur = (e) => {
         const field = e.target.name;
         const value = e.target.value;
@@ -21,7 +22,7 @@ const Register = () => {
             return;
         }
         // alert("clicked the submit button");
-        registerUser(loginData.email, loginData.password);
+        registerUser(loginData.email, loginData.password,loginData.userName, history);
         e.preventDefault();
     }
     return (

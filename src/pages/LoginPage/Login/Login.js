@@ -4,7 +4,7 @@ import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const { user, loginUser, isLoading, authError } = useAuth();
+    const { user, loginUser, isLoading, authError, signInWithGoogle } = useAuth();
     const [loginData, setLoginData] = useState({});
 
     const location = useLocation();
@@ -24,8 +24,14 @@ const Login = () => {
 
         e.preventDefault();
     }
+    const handleGoogleSigninOnClick = () => {
+        signInWithGoogle(location, history)
+    }
     return (
         <Container>
+            {
+                isLoading && <CircularProgress />
+            }
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <Typography sx={{ textAlign: "center", mt: 5 }} variant="h4" gutterBottom>
@@ -55,23 +61,30 @@ const Login = () => {
 
                         <Button sx={{ width: 3 / 4, m: 1 }} variant="contained" type="submit">Login</Button>
 
+                        {/* Google sign in method (alternative) */}
+                        <Typography sx={{ color: 'cadetblue', m: 3 }} variant="h6" gutterBottom component="div">
+                            Another way to Login?
+                        </Typography>
+
+                        <Button onClick={handleGoogleSigninOnClick} sx={{ width: 3 / 4, m: 1 }} variant="contained">Google Signin</Button>
+
                         <NavLink style={{ textDecoration: 'none' }} to='/register'>
                             <Button sx={{ width: 3 / 4, m: 1 }} variant="text">New User? Please Rsegister</Button>
                         </NavLink>
                     </form>
 
-                    {
-                        isLoading && <CircularProgress />
-                    }
+
+
 
                     {
-                        user?.email && <Alert severity="success">Thank You! User Registered Successfully!!!</Alert>
+                        user?.email && <Alert severity="success">Thank You! User Successfully logged in!!!</Alert>
 
                     }
 
                     {
                         authError && <Alert severity="error">{authError}</Alert>
                     }
+
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '100%', marginTop: '15px' }} src="https://i.ibb.co/Jz4v5xN/register.png" alt="" />

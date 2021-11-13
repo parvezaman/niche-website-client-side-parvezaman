@@ -6,7 +6,8 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const style = {
     position: 'absolute',
@@ -22,6 +23,16 @@ const style = {
 
 const Purchase = ({ openModal, handleModalClose, product }) => {
     const { autoFocus, imageUrl, monitor, name, price, resolution, sensorSize, userLavel, viewFinder } = product;
+    const {user} = useAuth();
+
+    const history = useHistory();
+    const handlePurchaseProceed = (e) => {
+        alert("clicked");
+        handleModalClose();
+        history.push('/purchase');
+        e.preventDefault();
+    }
+
     return (
         <Modal
             aria-labelledby="transition-modal-title"
@@ -40,18 +51,45 @@ const Purchase = ({ openModal, handleModalClose, product }) => {
                         You are proceeding for {name}
                     </Typography>
 
-                    <form>
+                    <form onSubmit={handlePurchaseProceed}>
                         <TextField
                             disabled
-                            sx={{width:'99%'}}
+                            sx={{ width: '99%', m: 1 }}
                             label="Product Name"
                             id="outlined-size-small"
                             defaultValue={name}
                             size="small"
                         />
-                        <Link to="/purchase">
-                        <Button>Proceed Purchase</Button>
-                        </Link>
+                        <TextField
+                            disabled
+                            sx={{ width: '99%', m: 1 }}
+                            label="Product Price"
+                            id="outlined-size-small"
+                            defaultValue={price}
+                            size="small"
+                        />
+                        <TextField
+                            sx={{ width: '99%', m: 1 }}
+                            label="Your Name"
+                            id="outlined-size-small"
+                            defaultValue={user.displayName}
+                            size="small"
+                        />
+                        <TextField
+                            sx={{ width: '99%', m: 1 }}
+                            label="Your email"
+                            id="outlined-size-small"
+                            defaultValue={user.email}
+                            size="small"
+                        />
+                        <TextField
+                            sx={{ width: '99%', m: 1 }}
+                            label="Your address"
+                            id="outlined-size-small"
+                            defaultValue=""
+                            size="small"
+                        />
+                        <Button type="submit" variant="contained">Proceed Purchase</Button>
                     </form>
                 </Box>
             </Fade>
