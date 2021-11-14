@@ -1,9 +1,10 @@
+import React from 'react';
 import { Button, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 
-const MyOrders = () => {
+const AllOrders = () => {
     const { user } = useAuth();
     const [allOrders, setAllOrders] = useState([]);
 
@@ -15,6 +16,7 @@ const MyOrders = () => {
                 setAllOrders(data);
             })
     }, [])
+
 
     // Delete a user
     const handleDeleteOrder = (id) => {
@@ -36,24 +38,41 @@ const MyOrders = () => {
         }
     }
 
-    const myOrders = allOrders.filter(order => order.mainEmail === user.email)
+    // const newStatus = "Shipped";
+    const handleUpdateStatus = id=>{
+        const url = `http://localhost:5000/orders/${id}`;
+        fetch(url, {
+            method: "PUT",
+            headers:{
+                'content-type':'application/json'
+            },
+            // body: JSON.stringify(newStatus)
+        })
+        .then()
+
+    }
 
     return (
         <div>
-            <h3>Showing All orders for {user.email} ({myOrders.length} orders)</h3>
+            <h3>Showing All orders ({allOrders.length} orders)</h3>
             {
-                myOrders.map(order => <Container>
+                allOrders.map(order => <Container>
                     <div className="d-flex justify-content-between align-items-center bg-dark text-white mb-3 p-3">
                         <div>
                             <Typography variant="h4" gutterBottom component="div">
                                 {order.productName}
                             </Typography>
                             <Typography variant="subtitle2" gutterBottom component="div">
-                                Buyer Name: {order.buyerName}, Address: {order.buyerAddress}, Phone: {order.buyerPhone}
+                                Buyer Name: {order.buyerName}, Address: {order.buyerAddress}, Phone: {order.buyerPhone}, Buyer Email: {order.buyerEmail}
+                            </Typography>
+                            <Typography variant="subtitle2" gutterBottom component="div">
+                                Delivary Status: {order.status}
                             </Typography>
                         </div>
-                        <div>
-                            <Button className="bg-danger" onClick={() => handleDeleteOrder(order._id)} variant="contained">Cancel Order</Button>
+                        <div className="d-flex flex-column">
+                            <Button className="mb-2 bg-danger" onClick={() => handleDeleteOrder(order._id)} variant="contained">Cancel Order</Button>
+                            
+                            <Button onClick={() => handleUpdateStatus(order._id)} variant="contained">Update Status</Button>
                         </div>
                     </div>
                 </Container>)
@@ -62,4 +81,4 @@ const MyOrders = () => {
     );
 };
 
-export default MyOrders;
+export default AllOrders;
