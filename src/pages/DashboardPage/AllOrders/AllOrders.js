@@ -3,6 +3,7 @@ import { Button, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
+import { reload } from '@firebase/auth';
 
 const AllOrders = () => {
     const { user } = useAuth();
@@ -39,16 +40,21 @@ const AllOrders = () => {
     }
 
     // const newStatus = "Shipped";
-    const handleUpdateStatus = id=>{
+    const handleUpdateStatus = id => {
         const url = `http://localhost:5000/orders/${id}`;
         fetch(url, {
             method: "PUT",
-            headers:{
-                'content-type':'application/json'
+            headers: {
+                'content-type': 'application/json'
             },
             // body: JSON.stringify(newStatus)
         })
-        .then()
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert("Successfully Updated Shipping Status!!! Please reload to see changes");
+                }
+            })
 
     }
 
@@ -71,7 +77,7 @@ const AllOrders = () => {
                         </div>
                         <div className="d-flex flex-column">
                             <Button className="mb-2 bg-danger" onClick={() => handleDeleteOrder(order._id)} variant="contained">Cancel Order</Button>
-                            
+
                             <Button onClick={() => handleUpdateStatus(order._id)} variant="contained">Update Status</Button>
                         </div>
                     </div>
