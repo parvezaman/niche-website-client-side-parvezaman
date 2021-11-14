@@ -33,7 +33,7 @@ const PurchaseProceed = () => {
 
     const initialInfo = {
         mainUser: user.displayName,
-        mainEmain: user.email
+        mainEmail: user.email
     }
 
     const [orderInfo, setOrderInfo] = useState(initialInfo);
@@ -53,7 +53,7 @@ const PurchaseProceed = () => {
                 console.log(res);
 
                 if (res.data.insertedId) {
-                    alert("Thank You!!! Your order has placed successfully!");
+                    alert("Thank You!!! Your order has been placed successfully!");
                     reset();
                 }
             })
@@ -81,6 +81,7 @@ const PurchaseProceed = () => {
 
                         </Card.Body>
                         <ListGroup className="list-group-flush">
+                            <ListGroupItem>Product ID: {_id}</ListGroupItem>
                             <ListGroupItem>Auto Focus: {autoFocus}</ListGroupItem>
                             <ListGroupItem>Display: {monitor}</ListGroupItem>
                             <ListGroupItem>Resulution: {resolution}</ListGroupItem>
@@ -101,9 +102,18 @@ const PurchaseProceed = () => {
                     <form onSubmit={handleOnSubmit}>
                         <TextField
                             required
-                            label="Please Type the Produce Name"
+                            label="Please Type the Product Name"
                             sx={{ width: '99%', m: 1 }}
                             name="productName"
+                            id="outlined-size-small"
+                            onChange={handleOnBlur}
+                            size="small"
+                        />
+                        <TextField
+                            required
+                            label="Please Type the Product ID"
+                            sx={{ width: '99%', m: 1 }}
+                            name="productID"
                             id="outlined-size-small"
                             onChange={handleOnBlur}
                             size="small"

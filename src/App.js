@@ -14,6 +14,7 @@ import Register from './pages/LoginPage/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/LoginPage/PrivateRoute/PrivateRoute';
 import PurchaseProceed from './pages/PurchasePage/PurchaseProceed/PurchaseProceed';
+import MyOrders from './pages/DashboardPage/MyOrders/MyOrders';
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/myorders">
+              <MyOrders />
             </Route>
             <Route path="*">
               <NotFound />
