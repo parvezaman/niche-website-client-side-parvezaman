@@ -60,7 +60,7 @@ const Purchase = ({ openModal, handleModalClose, product }) => {
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {
-                    alert("data added successfully");
+                    // alert("data added successfully");
                     reset();
                 }
             })
@@ -120,24 +120,6 @@ const Purchase = ({ openModal, handleModalClose, product }) => {
                                 onBlur={handleOnBlur}
                                 defaultValue={user.email}
                                 name="email"
-                                size="small"
-                            />
-                            <TextField
-                                sx={{ width: '99%', m: 1 }}
-                                label="Your address"
-                                id="outlined-size-small"
-                                onBlur={handleOnBlur}
-                                name="address"
-                                defaultValue=""
-                                size="small"
-                            />
-                            <TextField
-                                sx={{ width: '99%', m: 1 }}
-                                label="Your phone Number"
-                                id="outlined-size-small"
-                                onBlur={handleOnBlur}
-                                name="phone"
-                                defaultValue=""
                                 size="small"
                             />
                             <Button type="submit" variant="contained">Proceed Purchase</Button>
