@@ -16,7 +16,7 @@ const Accessories = () => {
     },[])
     return (
         <Container>
-            <h3 className="mt-5 mb-5 text-center">Reviews from our valued coustomers</h3>
+            <h3 className="mt-5 mb-5 text-center">Some accessories you might need</h3>
             <Grid container spacing={2}>
                 {
                     accessories.map(accessory => <ShowAccessories
