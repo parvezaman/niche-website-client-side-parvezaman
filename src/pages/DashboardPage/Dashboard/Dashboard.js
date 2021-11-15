@@ -55,34 +55,33 @@ const Dashboard = (props) => {
         <div>
             <Toolbar />
             <Divider />
-            <Link to='/'><Button color="inherit">Main Home</Button></Link>
-            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
+            <Link to='/' style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} variant="outlined" color="inherit">Main Home</Button></Link>
+            <br/>
+            <Link to={`${url}`} style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} variant="outlined" color="inherit">Dashboard</Button></Link>
+            <br/>
 
             {
                 admin && <Box>
-                    <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
-                    <Link to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
-                    <Link to={`${url}/manegeallorders`}><Button color="inherit">Manage All Orders</Button></Link>
-                    <Link to={`${url}/manageproducts`}><Button color="inherit">Manage Products</Button></Link>
+                    <Link to={`${url}/makeadmin`} style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} color="inherit" variant="outlined">Make Admin</Button></Link>
+                    <br/>
+                    <Link to={`${url}/addproduct`} style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} variant="outlined" color="inherit">Add Product</Button></Link>
+                    <br/>
+                    <Link to={`${url}/manegeallorders`} style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} variant="outlined" color="inherit">Manage All Orders</Button></Link>
+                    <br/>
+                    <Link to={`${url}/manageproducts`} style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} variant="outlined" color="inherit">Manage Products</Button></Link>
+                    <br/>
                 </Box>
             }
 
-            <Link to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link>
-            <Link to={`${url}/payment`}><Button color="inherit">Payment</Button></Link>
-            <Link to={`${url}/review`}><Button color="inherit">Review</Button></Link>
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+            <Link to={`${url}/myorders`} style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} variant="outlined" color="inherit">My Orders</Button></Link>
+            <br/>
+            <Link to={`${url}/payment`} style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} variant="outlined" color="inherit">Payment</Button></Link>
+            <br/>
+            <Link to={`${url}/review`} style={{textDecoration: 'none'}} ><Button sx={{marginBottom:'5px'}} variant="outlined" color="inherit">Review</Button></Link>
+            
             <Divider />
             <List>
-                <Button onClick={logOut}>Logout</Button>
+                <Button sx={{color:'red'}} onClick={logOut} variant="outlined">Logout</Button>
             </List>
         </div>
     );
