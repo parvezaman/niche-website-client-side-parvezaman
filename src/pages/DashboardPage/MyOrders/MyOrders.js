@@ -43,7 +43,7 @@ const MyOrders = () => {
             <h3>Showing All orders for {user.email} ({myOrders.length} orders)</h3>
             {
                 myOrders.map(order => <Container>
-                    <div className="d-flex justify-content-between align-items-center bg-dark text-white mb-3 p-3">
+                    <div className="d-md-flex justify-content-between align-items-center bg-dark text-white mb-3 p-3">
                         <div>
                             <Typography variant="h4" gutterBottom component="div">
                                 {order.productName}
