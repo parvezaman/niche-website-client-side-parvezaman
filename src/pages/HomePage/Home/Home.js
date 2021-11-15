@@ -2,6 +2,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import Products from '../Products/Products';
+import ShowReview from '../ShowReview/ShowReview';
 
 const Home = () => {
     return (
@@ -46,6 +47,7 @@ const Home = () => {
                 </Carousel>
             </Box>
             <Products />
+            <ShowReview/>
         </Box>
     );
 };
