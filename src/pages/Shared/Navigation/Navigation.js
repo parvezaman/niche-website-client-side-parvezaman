@@ -127,24 +127,22 @@ const Navigation = () => {
                         </Typography>
 
                         <Box className={navItemContainer}>
-                            <NavLink className={navItem} to="/home" ><Button color="inherit" sx={{ fontSize: '19px' }}><IoHome /></Button></NavLink>
-                            <NavLink className={navItem} to="/myorders" ><Button color="inherit" sx={{ fontSize: '19px' }}>My Orders</Button></NavLink>
-                            <NavLink className={navItem} to="/addproduct" ><Button sx={{ fontSize: '19px' }} color="inherit"><MdAddAPhoto /></Button></NavLink>
-                            <NavLink className={navItem} to="/allproducts"><Button sx={{ fontSize: '19px' }} color="inherit">All Cameras</Button></NavLink>
+                            <NavLink className={navItem} to="/home" ><Button color="inherit" sx={{ fontSize: '13px' }}>Home</Button></NavLink>
+                            <NavLink className={navItem} to="/allproducts"><Button sx={{ fontSize: '13px' }} color="inherit">All Cameras</Button></NavLink>
 
 
                             {
                                 user?.email ?
                                     <>
                                         <NavLink className={navItem} to='/dashboard'>
-                                            <Button sx={{ fontSize: '19px' }} color="inherit">Dashboard</Button>
+                                            <Button sx={{ fontSize: '13px' }} color="inherit">Dashboard</Button>
                                         </NavLink>
 
-                                        <Button onClick={logOut} sx={{ fontSize: '19px' }} color="inherit"><RiLogoutBoxFill /> {user.displayName}</Button>
+                                        <Button onClick={logOut} sx={{ fontSize: '13px' }} color="inherit">Logout {user.displayName}</Button>
                                     </>
                                     :
                                     <NavLink className={navItem} to='/login'>
-                                        <Button sx={{ fontSize: '19px' }} color="inherit"><RiLoginBoxFill /></Button>
+                                        <Button sx={{ fontSize: '13px' }} color="inherit">Login</Button>
                                     </NavLink>
                             }
                         </Box>

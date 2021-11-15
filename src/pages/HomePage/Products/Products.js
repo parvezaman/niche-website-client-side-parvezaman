@@ -25,6 +25,7 @@ const Products = () => {
   console.log(fewProducts);
   return (
     <div>
+      <h3 className="text-center mt-5 mb-5">Some of our hot Products</h3>
       {
         fewProducts.map(product => <ShowProduct
         key={product._id}

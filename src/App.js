@@ -17,6 +17,7 @@ import PurchaseProceed from './pages/PurchasePage/PurchaseProceed/PurchaseProcee
 import MyOrders from './pages/DashboardPage/MyOrders/MyOrders';
 import AllOrders from './pages/DashboardPage/AllOrders/AllOrders';
 import Dashboard from './pages/DashboardPage/Dashboard/Dashboard';
+import Foother from './pages/Shared/Foother/Foother';
 
 function App() {
   return (
@@ -31,9 +32,6 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
-            <PrivateRoute path="/addproduct">
-              <AddProduct />
-            </PrivateRoute>
             <Route path="/allproducts">
               <AllProducts />
             </Route>
@@ -46,19 +44,14 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/myorders">
-              <MyOrders />
-            </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
-            <Route path="/allorders">
-              <AllOrders />
-            </Route>
             <Route path="*">
               <NotFound />
             </Route>
           </Switch>
+          <Foother/>
         </Router>
       </AuthProvider>
     </div>
