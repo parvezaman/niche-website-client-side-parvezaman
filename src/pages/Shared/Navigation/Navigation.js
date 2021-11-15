@@ -66,36 +66,28 @@ const Navigation = () => {
         >
             <List>
                 <ListItem button>
-                    <ListItemIcon>
-                        {<MailIcon />}
-                    </ListItemIcon>
+                    
                     <ListItemText>
                         <Link className={mobileNavItem} to='/'>Home</Link>
                     </ListItemText>
                 </ListItem>
                 <Divider />
                 <ListItem button>
-                    <ListItemIcon>
-                        {<MailIcon />}
-                    </ListItemIcon>
+                    
                     <ListItemText>
-                        <Link className={mobileNavItem} to='/addproduct'>Add Product</Link>
+                        <Link className={mobileNavItem} to='/allproducts'>All Cameras</Link>
                     </ListItemText>
                 </ListItem>
                 <Divider />
                 <ListItem button>
-                    <ListItemIcon>
-                        {<MailIcon />}
-                    </ListItemIcon>
+                    
                     <ListItemText>
-                        <Link className={mobileNavItem} to='/allproducts'>All Products</Link>
+                        <Link className={mobileNavItem} to='/dashboard'>Dashboard</Link>
                     </ListItemText>
                 </ListItem>
                 <Divider />
                 <ListItem button>
-                    <ListItemIcon>
-                        {<MailIcon />}
-                    </ListItemIcon>
+                    
                     <ListItemText>
                         <Link className={mobileNavItem} to='/login'>Login</Link>
                     </ListItemText>
