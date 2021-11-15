@@ -54,7 +54,7 @@ const Dashboard = (props) => {
         <div>
             <Toolbar />
             <Divider />
-            <Link to='/allproducts'><Button color="inherit">All Products</Button></Link>
+            <Link to='/'><Button color="inherit">Main Home</Button></Link>
             <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
             <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
             <Link to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
