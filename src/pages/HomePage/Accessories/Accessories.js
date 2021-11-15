@@ -7,7 +7,7 @@ const Accessories = () => {
     const [accessories, setAccessories] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/accessories')
+        fetch('https://vast-woodland-23767.herokuapp.com/accessories')
         .then(res=> res.json())
         .then(data=>{
             console.log(data);

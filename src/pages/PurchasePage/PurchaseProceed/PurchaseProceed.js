@@ -19,7 +19,7 @@ const PurchaseProceed = () => {
     const { id } = useParams();
     console.log(id);
 
-    const url = `http://localhost:5000/products/${id}`
+    const url = `https://vast-woodland-23767.herokuapp.com/products/${id}`
 
     useEffect(() => {
         fetch(url)
@@ -48,7 +48,7 @@ const PurchaseProceed = () => {
     }
 
     const handleOnSubmit = e => {
-        axios.post("http://localhost:5000/orders", orderInfo)
+        axios.post("https://vast-woodland-23767.herokuapp.com/orders", orderInfo)
             .then(res => {
                 console.log(res);
 

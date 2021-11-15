@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/orders")
+        fetch("https://vast-woodland-23767.herokuapp.com/orders")
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -20,7 +20,7 @@ const MyOrders = () => {
     const handleDeleteOrder = (id) => {
         const proceed = window.confirm("Do you want to cancel your order?");
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://vast-woodland-23767.herokuapp.com/orders/${id}`;
             // console.log(url);
             fetch(url, {
                 method: "DELETE"

@@ -11,7 +11,7 @@ const MakeAdmin = () => {
     const handleMakeAnAdmin = (e) => {
         const user = { email };
         console.log(user);
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://vast-woodland-23767.herokuapp.com/users/admin', {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

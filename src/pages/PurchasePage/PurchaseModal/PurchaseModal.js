@@ -56,7 +56,7 @@ const Purchase = ({ openModal, handleModalClose, product }) => {
         handleModalClose();
         console.log(purchaseInfo);
         history.push(`/purchase/${purchaseInfo.productId}`);
-        axios.post("http://localhost:5000/purchaseinit", purchaseInfo)
+        axios.post("https://vast-woodland-23767.herokuapp.com/purchaseinit", purchaseInfo)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {

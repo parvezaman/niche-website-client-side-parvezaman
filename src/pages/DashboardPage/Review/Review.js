@@ -16,7 +16,7 @@ const Review = () => {
     console.log(review);
 
     const handleReviewSubmit = e => {
-        axios.post('http://localhost:5000/reviews', review)
+        axios.post('https://vast-woodland-23767.herokuapp.com/reviews', review)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {

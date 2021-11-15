@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 const ManageProducts = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://vast-woodland-23767.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -17,7 +17,7 @@ const ManageProducts = () => {
     const handleDeleteItem = (id) => {
         const proceed = window.confirm("Do you want to DELETE this Product?");
         if (proceed) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://vast-woodland-23767.herokuapp.com/products/${id}`;
             // console.log(url);
             fetch(url, {
                 method: "DELETE"
