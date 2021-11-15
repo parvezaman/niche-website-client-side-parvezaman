@@ -3,7 +3,6 @@ import { Button, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
-import { reload } from '@firebase/auth';
 
 const AllOrders = () => {
     const { user } = useAuth();
