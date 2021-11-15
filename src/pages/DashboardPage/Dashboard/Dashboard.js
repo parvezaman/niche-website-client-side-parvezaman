@@ -40,7 +40,7 @@ const drawerWidth = 240;
 
 
 const Dashboard = (props) => {
-    const {logOut} = useAuth();
+    const { logOut, admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -56,10 +56,16 @@ const Dashboard = (props) => {
             <Divider />
             <Link to='/'><Button color="inherit">Main Home</Button></Link>
             <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
-            <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
-            <Link to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
-            <Link to={`${url}/manegeallorders`}><Button color="inherit">Manage All Orders</Button></Link>
-            <Link to={`${url}/manageproducts`}><Button color="inherit">Manage Products</Button></Link>
+
+            {
+                admin && <Box>
+                    <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
+                    <Link to={`${url}/addproduct`}><Button color="inherit">Add Product</Button></Link>
+                    <Link to={`${url}/manegeallorders`}><Button color="inherit">Manage All Orders</Button></Link>
+                    <Link to={`${url}/manageproducts`}><Button color="inherit">Manage Products</Button></Link>
+                </Box>
+            }
+
             <Link to={`${url}/myorders`}><Button color="inherit">My Orders</Button></Link>
             <Link to={`${url}/payment`}><Button color="inherit">Payment</Button></Link>
             <Link to={`${url}/review`}><Button color="inherit">Review</Button></Link>
@@ -145,28 +151,28 @@ const Dashboard = (props) => {
                 <Toolbar />
                 <Switch>
                     <Route exact path={path}>
-                        <DashboardHome/>
+                        <DashboardHome />
                     </Route>
                     <Route path={`${path}/makeadmin`}>
-                        <MakeAdmin/>
+                        <MakeAdmin />
                     </Route>
                     <Route path={`${path}/addproduct`}>
-                        <AddProduct/>
+                        <AddProduct />
                     </Route>
                     <Route path={`${path}/manegeallorders`}>
-                        <AllOrders/>
+                        <AllOrders />
                     </Route>
                     <Route path={`${path}/manageproducts`}>
-                        <ManageProducts/>
+                        <ManageProducts />
                     </Route>
                     <Route path={`${path}/myorders`}>
-                        <MyOrders/>
+                        <MyOrders />
                     </Route>
                     <Route path={`${path}/payment`}>
-                        <Payment/>
+                        <Payment />
                     </Route>
                     <Route path={`${path}/review`}>
-                        <Review/>
+                        <Review />
                     </Route>
                 </Switch>
             </Box>
