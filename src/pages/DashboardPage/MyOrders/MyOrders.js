@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
 
     useEffect(() => {
-        fetch("https://niche-website-server-side-parvezaman-hhtl.vercel.app/orders")
+        fetch("https://shop-and-shoot.onrender.com/orders")
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -20,7 +20,7 @@ const MyOrders = () => {
     const handleDeleteOrder = (id) => {
         const proceed = window.confirm("Do you want to cancel your order?");
         if (proceed) {
-            const url = `https://niche-website-server-side-parvezaman-hhtl.vercel.app/orders/${id}`;
+            const url = `https://shop-and-shoot.onrender.com/orders/${id}`;
             // console.log(url);
             fetch(url, {
                 method: "DELETE"

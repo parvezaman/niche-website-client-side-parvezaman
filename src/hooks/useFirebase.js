@@ -87,7 +87,7 @@ const useFirebase = () => {
 
     // check admin
     useEffect(() => {
-        fetch(`https://niche-website-server-side-parvezaman-hhtl.vercel.app/users/${user.email}`)
+        fetch(`https://shop-and-shoot.onrender.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -104,7 +104,7 @@ const useFirebase = () => {
 
     const saveUserToDb = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://niche-website-server-side-parvezaman-hhtl.vercel.app/users', {
+        fetch('https://shop-and-shoot.onrender.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

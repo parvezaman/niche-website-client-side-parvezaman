@@ -5,7 +5,7 @@ import ShowProduct from '../ShowProduct/ShowProduct';
 const AllProducts = () => {
   const [products, setProducts] =useState([]);
   useEffect(()=>{
-    fetch("https://niche-website-server-side-parvezaman-hhtl.vercel.app/products")
+    fetch("https://shop-and-shoot.onrender.com/products")
     .then(res => res.json())
     .then(data => setProducts(data))
   },[])

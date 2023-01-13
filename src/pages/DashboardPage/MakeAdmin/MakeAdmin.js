@@ -11,7 +11,7 @@ const MakeAdmin = () => {
     const handleMakeAnAdmin = (e) => {
         const user = { email };
         console.log(user);
-        fetch('https://niche-website-server-side-parvezaman-hhtl.vercel.app/users/admin', {
+        fetch('https://shop-and-shoot.onrender.com/users/admin', {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

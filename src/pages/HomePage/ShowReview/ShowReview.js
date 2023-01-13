@@ -9,7 +9,7 @@ const ShowReview = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://niche-website-server-side-parvezaman-hhtl.vercel.app/reviews')
+        fetch('https://shop-and-shoot.onrender.com/reviews')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

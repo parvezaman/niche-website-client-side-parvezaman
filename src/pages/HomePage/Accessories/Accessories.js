@@ -7,7 +7,7 @@ const Accessories = () => {
     const [accessories, setAccessories] = useState([]);
 
     useEffect(()=>{
-        fetch('https://niche-website-server-side-parvezaman-hhtl.vercel.app/accessories')
+        fetch('https://shop-and-shoot.onrender.com/accessories')
         .then(res=> res.json())
         .then(data=>{
             console.log(data);

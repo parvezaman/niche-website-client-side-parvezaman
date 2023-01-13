@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 const ManageProducts = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('https://niche-website-server-side-parvezaman-hhtl.vercel.app/products')
+        fetch('https://shop-and-shoot.onrender.com/products')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -17,7 +17,7 @@ const ManageProducts = () => {
     const handleDeleteItem = (id) => {
         const proceed = window.confirm("Do you want to DELETE this Product?");
         if (proceed) {
-            const url = `https://niche-website-server-side-parvezaman-hhtl.vercel.app/products/${id}`;
+            const url = `https://shop-and-shoot.onrender.com/products/${id}`;
             // console.log(url);
             fetch(url, {
                 method: "DELETE"

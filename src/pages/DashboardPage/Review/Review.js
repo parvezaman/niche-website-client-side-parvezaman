@@ -16,7 +16,7 @@ const Review = () => {
     console.log(review);
 
     const handleReviewSubmit = e => {
-        axios.post('https://niche-website-server-side-parvezaman-hhtl.vercel.app/reviews', review)
+        axios.post('https://shop-and-shoot.onrender.com/reviews', review)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {
