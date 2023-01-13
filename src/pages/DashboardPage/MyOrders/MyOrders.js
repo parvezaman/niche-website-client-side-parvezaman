@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
 
     useEffect(() => {
-        fetch("https://vast-woodland-23767.herokuapp.com/orders")
+        fetch("https://niche-website-server-side-parvezaman-hhtl.vercel.app/orders")
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -20,7 +20,7 @@ const MyOrders = () => {
     const handleDeleteOrder = (id) => {
         const proceed = window.confirm("Do you want to cancel your order?");
         if (proceed) {
-            const url = `https://vast-woodland-23767.herokuapp.com/orders/${id}`;
+            const url = `https://niche-website-server-side-parvezaman-hhtl.vercel.app/orders/${id}`;
             // console.log(url);
             fetch(url, {
                 method: "DELETE"

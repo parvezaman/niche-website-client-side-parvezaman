@@ -87,7 +87,7 @@ const useFirebase = () => {
 
     // check admin
     useEffect(() => {
-        fetch(`https://vast-woodland-23767.herokuapp.com/users/${user.email}`)
+        fetch(`https://niche-website-server-side-parvezaman-hhtl.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -104,7 +104,7 @@ const useFirebase = () => {
 
     const saveUserToDb = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://vast-woodland-23767.herokuapp.com/users', {
+        fetch('https://niche-website-server-side-parvezaman-hhtl.vercel.app/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

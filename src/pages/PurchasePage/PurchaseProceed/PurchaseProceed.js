@@ -19,7 +19,7 @@ const PurchaseProceed = () => {
     const { id } = useParams();
     console.log(id);
 
-    const url = `https://vast-woodland-23767.herokuapp.com/products/${id}`
+    const url = `https://niche-website-server-side-parvezaman-hhtl.vercel.app/products/${id}`
 
     useEffect(() => {
         fetch(url)
@@ -48,7 +48,7 @@ const PurchaseProceed = () => {
     }
 
     const handleOnSubmit = e => {
-        axios.post("https://vast-woodland-23767.herokuapp.com/orders", orderInfo)
+        axios.post("https://niche-website-server-side-parvezaman-hhtl.vercel.app/orders", orderInfo)
             .then(res => {
                 console.log(res);
 

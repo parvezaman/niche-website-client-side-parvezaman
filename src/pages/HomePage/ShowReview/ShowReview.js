@@ -9,7 +9,7 @@ const ShowReview = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://vast-woodland-23767.herokuapp.com/reviews')
+        fetch('https://niche-website-server-side-parvezaman-hhtl.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
